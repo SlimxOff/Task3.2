@@ -30,6 +30,11 @@ public class Main {
 
                 zos.closeEntry();
                 fis.close();
+
+                // Delete the file after adding it to the archive
+                if (!file.delete()) {
+                    System.out.println("Failed to delete file: " + file.getPath());
+                }
             }
             zos.close();
             fos.close();
